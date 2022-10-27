@@ -48,4 +48,7 @@ function playRound(playerChoice, comChoice) {
     return winner;
 }
 
-playRound(getPlayerSelection(), getComputerChoice())
+function getRoundCount() {
+    const rounds = parseInt(prompt("How many rounds do you want to play?", "5"));
+    return rounds;
+}
