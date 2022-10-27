@@ -9,7 +9,7 @@ function getComputerChoice() {
     return choices[randInt];
 }
 
-function getPlayerSelection() {
+function getPlayerChoice() {
     while (true) {
         const choice = prompt("Make a choice (Rock, Paper, Scissors)").toLowerCase();
         if (choices.includes(choice)) {
@@ -52,9 +52,35 @@ function getRoundsCount() {
     while (true) {
         const totalRounds = parseInt(prompt("How many rounds do you want to play?", "5"));
         if (isNaN(totalRounds)) {
-            alert("Input integers greater than 1 only!")
+            alert("Input integers greater than 1 only!");
         } else {
             return totalRounds;
         }
     }
 }
+
+function game(rounds) {
+    let playerScore = 0,
+        comScore = 0;
+
+    for (let i = 0; i < rounds; i++) {
+        const roundWinner = playRound(getPlayerChoice(), getComputerChoice());
+
+        switch(roundWinner) {
+            case "player":
+                playerScore++;
+                break;
+            case "com":
+                comScore++;
+                break;
+            default:
+                console.log("Round was a draw");
+        }
+    }
+
+    console.log("Game has ended!")
+    console.log(`Player: ${playerScore} win(s)`);
+    console.log(`COM: ${comScore} win(s)`);
+}
+
+game(getRoundsCount());
