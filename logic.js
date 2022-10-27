@@ -25,23 +25,23 @@ function playRound(playerChoice, comChoice) {
     let winner;
 
     if (playerChoice === comChoice) {
-        console.log("Draw");
+        console.log("This round ended in a draw.");
         winner = "draw";
 
     } else if (playerChoice === "rock" && comChoice === "scissors") {
-        console.log("You win");
+        console.log("You win this round.");
         winner = "player";
 
     } else if (playerChoice === "paper" && comChoice === "rock") {
-        console.log("you win");
+        console.log("You win this round.");
         winner = "player";
 
     } else if (playerChoice === "scissors" && comChoice === "paper") {
-        console.log("you win");
+        console.log("You win this round.");
         winner = "player";
 
     } else {
-        console.log("COM wins")
+        console.log("COM wins this round.")
         winner = "com";
     }
 
@@ -61,7 +61,8 @@ function getRoundsCount() {
 
 function game(rounds) {
     let playerScore = 0,
-        comScore = 0;
+        comScore = 0,
+        draws = 0;
 
     for (let i = 0; i < rounds; i++) {
         const roundWinner = playRound(getPlayerChoice(), getComputerChoice());
@@ -74,13 +75,22 @@ function game(rounds) {
                 comScore++;
                 break;
             default:
-                console.log("Round was a draw");
+                draws++;
         }
     }
 
-    console.log("Game has ended!")
+    console.log("Game has ended!");
     console.log(`Player: ${playerScore} win(s)`);
     console.log(`COM: ${comScore} win(s)`);
+    console.log(`Draw(s): ${draws}`);
+
+    if (playerScore > comScore) {
+        console.log("You won the game!!!");
+    } else if (playerScore < comScore) {
+        console.log("You lost! COM wins the game!!!");
+    } else {
+        console.log("Good game! It was a tie!!!");
+    }
 }
 
 game(getRoundsCount());
