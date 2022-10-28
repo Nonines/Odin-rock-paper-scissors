@@ -11,11 +11,17 @@ function getComputerChoice() {
 
 function getPlayerChoice() {
     while (true) {
-        const choice = prompt("Make a choice (Rock, Paper, Scissors)").toLowerCase();
-        if (choices.includes(choice)) {
-            return choice;
-        } else {
-            alert("Invalid choice!");
+        const choice = prompt("Make a choice (Rock, Paper, Scissors)");
+        try {
+            const lowerCaseChoice = choice.toLowerCase();
+            if (choices.includes(lowerCaseChoice)) {
+                return choice;
+            } else {
+                alert("Invalid choice!");
+            }
+        }
+        catch {
+            // pass
         }
     }
 }
@@ -52,6 +58,7 @@ function getRoundsCount() {
     while (true) {
         const totalRounds = parseInt(prompt("How many rounds do you want to play?", "5"));
         if (isNaN(totalRounds)) {
+            // TODO: inputting zero ends game.
             alert("Input integers greater than 1 only!");
         } else {
             return totalRounds;
