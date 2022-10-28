@@ -57,8 +57,7 @@ function playRound(playerChoice, comChoice) {
 function getRoundsCount() {
     while (true) {
         const totalRounds = parseInt(prompt("How many rounds do you want to play?", "5"));
-        if (isNaN(totalRounds)) {
-            // TODO: inputting zero ends game.
+        if (isNaN(totalRounds) || totalRounds <= 0) {
             alert("Input integers greater than 1 only!");
         } else {
             return totalRounds;
