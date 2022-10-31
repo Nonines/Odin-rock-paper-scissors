@@ -1,8 +1,14 @@
 const choices = ["rock", "paper", "scissors"];
 
-const rockButton = document.querySelector(".player-selection #rock");
-const paperButton = document.querySelector(".player-selection #paper");
-const scissorsButton = document.querySelector(".player-selection #scissors");
+// const rockButton = document.querySelector(".player-selection #rock");
+// const paperButton = document.querySelector(".player-selection #paper");
+// const scissorsButton = document.querySelector(".player-selection #scissors");
+
+const selectionButtons = document.querySelectorAll("button.selection-btn");
+
+for (let button of selectionButtons) {
+    button.addEventListener("click", () => playRound(button.id));
+}
 
 function getRandomNumber(limit) {
     return Math.floor(Math.random() * limit);
@@ -13,40 +19,42 @@ function getComputerChoice() {
     return choices[randInt];
 }
 
-function getplayerSelection() {
-    while (true) {
-        const choice = prompt("Make a choice (Rock, Paper, Scissors)");
-        try {
-            const lowerCaseChoice = choice.toLowerCase();
-            if (choices.includes(lowerCaseChoice)) {
-                return choice;
-            } else {
-                alert("Invalid choice!");
-            }
-        }
-        catch {
-            // pass
-        }
-    }
-}
+// function getplayerSelection() {
+//     while (true) {
+//         const choice = prompt("Make a choice (Rock, Paper, Scissors)");
+//         try {
+//             const lowerCaseChoice = choice.toLowerCase();
+//             if (choices.includes(lowerCaseChoice)) {
+//                 return choice;
+//             } else {
+//                 alert("Invalid choice!");
+//             }
+//         }
+//         catch {
+//             // pass
+//         }
+//     }
+// }
 
-function playRound(playerChoice, comChoice) {
-    console.log(`Your choice: ${playerChoice},` + ` COM's choice: ${comChoice}`);
+function playRound(playerSelection) {
+    comChoice = getComputerChoice();
+
+    console.log(`Your choice: ${playerSelection},` + ` COM's choice: ${comChoice}`);
     let winner;
 
-    if (playerChoice === comChoice) {
+    if (playerSelection === comChoice) {
         console.log("This round ended in a draw.");
         winner = "draw";
 
-    } else if (playerChoice === "rock" && comChoice === "scissors") {
+    } else if (playerSelection === "rock" && comChoice === "scissors") {
         console.log("You win this round.");
         winner = "player";
 
-    } else if (playerChoice === "paper" && comChoice === "rock") {
+    } else if (playerSelection === "paper" && comChoice === "rock") {
         console.log("You win this round.");
         winner = "player";
 
-    } else if (playerChoice === "scissors" && comChoice === "paper") {
+    } else if (playerSelection === "scissors" && comChoice === "paper") {
         console.log("You win this round.");
         winner = "player";
 
