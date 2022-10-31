@@ -1,5 +1,9 @@
 const choices = ["rock", "paper", "scissors"];
 
+const rockButton = document.querySelector(".player-selection #rock");
+const paperButton = document.querySelector(".player-selection #paper");
+const scissorsButton = document.querySelector(".player-selection #scissors");
+
 function getRandomNumber(limit) {
     return Math.floor(Math.random() * limit);
 }
@@ -9,7 +13,7 @@ function getComputerChoice() {
     return choices[randInt];
 }
 
-function getPlayerChoice() {
+function getplayerSelection() {
     while (true) {
         const choice = prompt("Make a choice (Rock, Paper, Scissors)");
         try {
@@ -71,7 +75,7 @@ function game(rounds) {
         draws = 0;
 
     for (let i = 0; i < rounds; i++) {
-        const roundWinner = playRound(getPlayerChoice(), getComputerChoice());
+        const roundWinner = playRound(getplayerSelection(), getComputerChoice());
 
         switch(roundWinner) {
             case "player":
@@ -99,4 +103,4 @@ function game(rounds) {
     }
 }
 
-game(getRoundsCount());
+// game(getRoundsCount());
