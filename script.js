@@ -1,5 +1,3 @@
-const choices = ["rock", "paper", "scissors"];
-
 const selectionButtons = document.querySelectorAll("button.selection-btn");
 
 for (let button of selectionButtons) {
@@ -7,29 +5,30 @@ for (let button of selectionButtons) {
 }
 
 function getComputerChoice() {
+    const choices = ["rock", "paper", "scissors"];
     const randInt = Math.floor(Math.random() * choices.length);
     return choices[randInt];
 }
 
 function playRound(playerSelection) {
-    comChoice = getComputerChoice();
+    comSelection = getComputerChoice();
 
-    console.log(`Your choice: ${playerSelection},` + ` COM's choice: ${comChoice}`);
+    console.log(`Your choice: ${playerSelection},` + ` COM's choice: ${comSelection}`);
     let winner;
 
-    if (playerSelection === comChoice) {
+    if (playerSelection === comSelection) {
         console.log("This round ended in a draw.");
         winner = "draw";
 
-    } else if (playerSelection === "rock" && comChoice === "scissors") {
+    } else if (playerSelection === "rock" && comSelection === "scissors") {
         console.log("You win this round.");
         winner = "player";
 
-    } else if (playerSelection === "paper" && comChoice === "rock") {
+    } else if (playerSelection === "paper" && comSelection === "rock") {
         console.log("You win this round.");
         winner = "player";
 
-    } else if (playerSelection === "scissors" && comChoice === "paper") {
+    } else if (playerSelection === "scissors" && comSelection === "paper") {
         console.log("You win this round.");
         winner = "player";
 
@@ -38,52 +37,20 @@ function playRound(playerSelection) {
         winner = "com";
     }
 
-    return winner;
+    results(playerSelection, comSelection, winner);
 }
 
-// function getRoundsCount() {
-//     while (true) {
-//         const totalRounds = parseInt(prompt("How many rounds do you want to play?", "5"));
-//         if (isNaN(totalRounds) || totalRounds <= 0) {
-//             alert("Input integers greater than 1 only!");
-//         } else {
-//             return totalRounds;
-//         }
-//     }
-// }
+const resultsDiv = document.querySelector("#results");
+const playerChoicePara = document.createElement("p");
+const comChoicePara = document.createElement("p");
+const roundWinnerPara = document.createElement("p");
 
-// function game(rounds) {
-//     let playerScore = 0,
-//         comScore = 0,
-//         draws = 0;
+function results(playerChoice, comChoice, winner) {
+    playerChoicePara.textContent = `Your choice: ${playerChoice}`;
+    comChoicePara.textContent = `COM's choice: ${comChoice}`;
+    roundWinnerPara.textContent = `${winner} wins this round`;
 
-//     for (let i = 0; i < rounds; i++) {
-//         const roundWinner = playRound(getplayerSelection(), getComputerChoice());
-
-//         switch(roundWinner) {
-//             case "player":
-//                 playerScore++;
-//                 break;
-//             case "com":
-//                 comScore++;
-//                 break;
-//             default:
-//                 draws++;
-//         }
-//     }
-
-//     console.log("Game has ended!");
-//     console.log(`Player: ${playerScore} win(s)`);
-//     console.log(`COM: ${comScore} win(s)`);
-//     console.log(`Draw(s): ${draws}`);
-
-//     if (playerScore > comScore) {
-//         console.log("You won the game!!!");
-//     } else if (playerScore < comScore) {
-//         console.log("You lost! COM wins the game!!!");
-//     } else {
-//         console.log("Good game! It was a tie!!!");
-//     }
-// }
-
-// game(getRoundsCount());
+    resultsDiv.appendChild(playerChoicePara);
+    resultsDiv.appendChild(comChoicePara);
+    resultsDiv.appendChild(roundWinnerPara);
+}
