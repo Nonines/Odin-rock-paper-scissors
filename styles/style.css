@@ -1,0 +1,31 @@
+body {
+    box-sizing: border-box;
+    background-color: #775244;
+}
+
+.selection-container {
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.selection-container button {
+    padding: 0;
+    border: 0;
+    height: 150px;
+}
+
+.selection-container img {
+    height: 150px;
+    width: 150px;
+}
+
+#round-container {
+    height: 250px;
+}
+
+#score-container {
+    height: 100px;
+}
