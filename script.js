@@ -37,20 +37,29 @@ function playRound(playerSelection) {
         winner = "com";
     }
 
-    results(playerSelection, comSelection, winner);
+    showResults(playerSelection, comSelection, winner);
+    getScore(winner);
 }
 
-const resultsDiv = document.querySelector("#results");
+const resultsDiv = document.querySelector("#results-container");
 const playerChoicePara = document.createElement("p");
 const comChoicePara = document.createElement("p");
 const roundWinnerPara = document.createElement("p");
 
-function results(playerChoice, comChoice, winner) {
+function showResults(playerChoice, comChoice, winner) {
     playerChoicePara.textContent = `Your choice: ${playerChoice}`;
     comChoicePara.textContent = `COM's choice: ${comChoice}`;
-    roundWinnerPara.textContent = `${winner} wins this round`;
+    if (winner === "draw") {
+        roundWinnerPara.textContent = "It's a tie!"
+    } else {
+        roundWinnerPara.textContent = `${winner} wins this round!`;
+    }
 
     resultsDiv.appendChild(playerChoicePara);
     resultsDiv.appendChild(comChoicePara);
     resultsDiv.appendChild(roundWinnerPara);
+}
+
+function getScore() {
+    // code
 }
