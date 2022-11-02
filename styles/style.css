@@ -1,14 +1,22 @@
 body {
     box-sizing: border-box;
-    background-color: #775244;
+    background-color: #0a0606;
+    color: #ffffff;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .selection-container {
-    height: 250px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
+
+    border: 2px solid coral;
 }
 
 .selection-container button {
@@ -22,10 +30,14 @@ body {
     width: 150px;
 }
 
-#round-container {
-    height: 250px;
+#score-container {
+    height: 150px;
+
+    border: 2px solid coral;
 }
 
-#score-container {
-    height: 100px;
+#round-container {
+    height: 150px;
+
+    border: 2px solid coral;
 }
