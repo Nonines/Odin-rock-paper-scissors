@@ -1,43 +1,18 @@
 body {
     box-sizing: border-box;
-    background-color: #0a0606;
-    color: #ffffff;
+    /* background-color: #0a0606; */
+    background-image: linear-gradient(rgb(255, 116, 66), rgb(230, 179, 161));
+    color: #000;
     height: 100vh;
-
+    font-family: monospace;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 5px;
 }
 
-.selection-container {
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-
-    border: 2px solid coral;
-}
-
-.selection-container button {
-    padding: 0;
-    border: 0;
-    height: 150px;
-}
-
-.selection-container img {
+img {
     height: 150px;
     width: 150px;
-}
-
-#score-container {
-    height: 150px;
-
-    border: 2px solid coral;
-}
-
-#round-container {
-    height: 150px;
-
-    border: 2px solid coral;
+    border-radius: 60px;
 }
