@@ -38,7 +38,7 @@ function playRound(playerSelection) {
     }
 
     showResults(playerSelection, comSelection, winner);
-    // displayScore(winner);
+    displayScore(winner);
 }
 
 const roundContainer = document.querySelector("#round-container");
@@ -72,4 +72,26 @@ function showResults(playerSelection, comSelection, winner) {
     }
 
     roundWinInfo.textContent += ` ${winningChoice.toUpperCase()} beats ${losingChoice}.`;
+}
+
+const playerScoreSpan = document.querySelector("#player-score");
+const comScoreSpan = document.querySelector("#com-score");
+
+let playerScore = 0, comScore = 0;
+
+function displayScore(winner){
+    switch(winner) {
+        case "player":
+            playerScore++;
+            console.log(playerScore);
+            break;
+
+        case "com":
+            comScore++;
+            console.log(comScore);
+            break;
+    }
+
+    playerScoreSpan.textContent = playerScore;
+    comScoreSpan.textContent = comScore;
 }
