@@ -29,27 +29,21 @@ function selectScissors() {
 function playRound(playerSelection) {
     comSelection = getComputerChoice();
 
-    console.log(`Your choice: ${playerSelection},` + ` COM's choice: ${comSelection}`);
     let winner;
 
     if (playerSelection === comSelection) {
-        console.log("This round ended in a draw.");
         winner = "draw";
 
     } else if (playerSelection === "rock" && comSelection === "scissors") {
-        console.log("You win this round.");
         winner = "player";
 
     } else if (playerSelection === "paper" && comSelection === "rock") {
-        console.log("You win this round.");
         winner = "player";
 
     } else if (playerSelection === "scissors" && comSelection === "paper") {
-        console.log("You win this round.");
         winner = "player";
 
     } else {
-        console.log("COM wins this round.")
         winner = "com";
     }
 
@@ -98,12 +92,10 @@ function displayScore(winner){
     switch(winner) {
         case "player":
             playerScore++;
-            console.log(playerScore);
             break;
 
         case "com":
             comScore++;
-            console.log(comScore);
             break;
     }
 
