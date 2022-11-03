@@ -6,4 +6,4 @@ This is my attempt at Project: [Rock Paper Scissors](https://www.theodinproject.
 ## Skills demonstrated in this project
 
 *  Basic JavaScript concepts, including functions, conditionals, events and DOM manipulation.
-* [Live preview (console)](https://nonines.github.io/Odin-rock-paper-scissors/)
+* [Live preview](https://nonines.github.io/Odin-rock-paper-scissors/)
