@@ -114,7 +114,6 @@ function displayScore(winner){
 
 function checkScore(winner) {
     const winMessage = document.createElement("p");
-    winMessage.id = "win-message";
 
     if (playerScore == 5 || comScore == 5) {
         rockButton.removeEventListener("click", selectRock);
@@ -123,8 +122,10 @@ function checkScore(winner) {
 
         if (winner === "com") {
             winMessage.textContent = "COM wins the game! Better luck next time!";
+            winMessage.classList.add("com-win-message");
         } else {
             winMessage.textContent = "You won the game! Good going!";
+            winMessage.classList.add("player-win-message");
         }
 
         winMessage.textContent += " Click this message to restart."

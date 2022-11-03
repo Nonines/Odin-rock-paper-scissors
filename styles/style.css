@@ -1,6 +1,5 @@
 body {
     box-sizing: border-box;
-    /* background-color: #0a0606; */
     background-image: linear-gradient(rgb(255, 116, 66), rgb(230, 179, 161));
     color: #000;
     min-height: 98vh;
@@ -13,8 +12,52 @@ body {
     gap: 5px;
 }
 
+h3 {
+    color: rgb(18, 114, 131);
+}
+
 img {
     height: 150px;
     width: 150px;
+    border: 2px solid;
     border-radius: 10px;
+}
+
+img:hover {
+    border: 2px solid burlywood;
+    transform: scale(1.1);
+    transition-duration: 300ms;
+}
+
+img:active {
+    border: 2px solid green;
+}
+
+#score-container {
+    font-weight: bold;
+}
+
+#player-score, #com-score {
+    color: rgb(18, 114, 131);
+}
+
+.player-win-message {
+    color: green;
+}
+
+.com-win-message {
+    color: crimson;
+}
+
+.player-win-message:hover, .com-win-message:hover {
+    color: #000;
+}
+
+a {
+    text-decoration: none;
+    color: steelblue;
+}
+
+a:hover {
+    text-decoration: underline;
 }
