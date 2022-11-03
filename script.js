@@ -1,13 +1,29 @@
-const selectionButtons = document.querySelectorAll(".selection-img");
-
-for (let button of selectionButtons) {
-    button.addEventListener("click", () => playRound(button.id));
-}
+let playerScore = 0, comScore = 0;
 
 function getComputerChoice() {
     const choices = ["rock", "paper", "scissors"];
     const randInt = Math.floor(Math.random() * choices.length);
     return choices[randInt];
+}
+
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
+
+rockButton.addEventListener("click", selectRock);
+paperButton.addEventListener("click", selectPaper);
+scissorsButton.addEventListener("click", selectScissors);
+
+function selectRock() {
+    playRound("rock");
+}
+
+function selectPaper() {
+    playRound("paper");
+}
+
+function selectScissors() {
+    playRound("scissors")
 }
 
 function playRound(playerSelection) {
@@ -74,10 +90,9 @@ function showResults(playerSelection, comSelection, winner) {
     roundWinInfo.textContent += ` ${winningChoice.toUpperCase()} beats ${losingChoice}.`;
 }
 
+const scoreContainer = document.querySelector("#score-container");
 const playerScoreSpan = document.querySelector("#player-score");
 const comScoreSpan = document.querySelector("#com-score");
-
-let playerScore = 0, comScore = 0;
 
 function displayScore(winner){
     switch(winner) {
@@ -94,4 +109,23 @@ function displayScore(winner){
 
     playerScoreSpan.textContent = playerScore;
     comScoreSpan.textContent = comScore;
+    checkScore(winner);
+}
+
+function checkScore(winner) {
+    const winMessage = document.createElement("p");
+    winMessage.id = "win-message";
+
+    if (playerScore == 5 || comScore == 5) {
+        rockButton.removeEventListener("click", selectRock);
+        paperButton.removeEventListener("click", selectPaper);
+        scissorsButton.removeEventListener("click", selectScissors);
+
+        if (winner === "COM") {
+            winMessage.textContent = "COM wins the game! Better luck next time!";
+        } else {
+            winMessage.textContent = "You won the game! Good going!";
+        }
+        scoreContainer.appendChild(winMessage);
+    }
 }
