@@ -9,19 +9,24 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
-    <h3>First to 5 wins</h3>
-    <div class="selection-container">
-        <img class="selection-img" id="rock" src="./images/Rock.jpg" alt="rock">
-        <img class="selection-img" id="paper" src="./images/Paper.jpg" alt="paper">
-        <img class="selection-img" id="scissors" src="./images/Scissors.jpg" alt="scissors">
+
+    <div id="main">
+        <h1>Rock Paper Scissors</h1>
+        <h3>First to 5 wins</h3>
+        <div class="selection-container">
+            <img class="selection-img" id="rock" src="./images/Rock.jpg" alt="rock">
+            <img class="selection-img" id="paper" src="./images/Paper.jpg" alt="paper">
+            <img class="selection-img" id="scissors" src="./images/Scissors.jpg" alt="scissors">
+        </div>
+        <div id="score-container">
+            <p>Your score: <span id="player-score"></span> &diamond; COM's score: <span id="com-score"></span></p>
+        </div>
+        <div id="round-container"></div>
     </div>
 
-    <div id="score-container">
-        <p>Your score: <span id="player-score"></span> &diamond; COM's score: <span id="com-score"></span></p>
+    <div id="footer">
+        Images: <a href="">ZORLIG</a>
     </div>
-
-    <div id="round-container"></div>
 
 </body>
 </html>

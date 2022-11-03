@@ -121,11 +121,18 @@ function checkScore(winner) {
         paperButton.removeEventListener("click", selectPaper);
         scissorsButton.removeEventListener("click", selectScissors);
 
-        if (winner === "COM") {
+        if (winner === "com") {
             winMessage.textContent = "COM wins the game! Better luck next time!";
         } else {
             winMessage.textContent = "You won the game! Good going!";
         }
-        scoreContainer.appendChild(winMessage);
+
+        winMessage.textContent += " Click this message to restart."
+        winMessage.addEventListener("click", reloadPage);
+        roundContainer.appendChild(winMessage);
     }
+}
+
+function reloadPage() {
+    window.location.reload();
 }
